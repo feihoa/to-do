@@ -1,5 +1,9 @@
 # to-do
 
+Vue 3
+Vue router
+jsonplaceholder
+
 ## Project setup
 ```
 npm install
