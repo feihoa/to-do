@@ -17,6 +17,7 @@
       v-else-if="filterTodos.length"
       v-bind:todos="filterTodos"
       @remove-item="handleRemove"
+      :key='toDoListKey'
       />
       <p v-else>Дел не осталось!</p>
   </div>
@@ -40,7 +41,8 @@ export default {
     return{
       todos:[],
       loading:true,
-      filter:'all'
+      filter:'all',
+
     }
   },
   computed:{
@@ -56,13 +58,13 @@ export default {
       }
   },
   methods:{
-    
+
     handleRemove(id){
       this.todos = this.todos.filter(todo => todo.id !== id)
     },
     handleAdd(item){      
       this.todos.push(item)
-    }
+    },
   },
   mounted(){
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=30')
